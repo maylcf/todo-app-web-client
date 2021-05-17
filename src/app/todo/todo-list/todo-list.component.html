@@ -1,0 +1,65 @@
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Horus</a>
+  
+      <!-- User's Name -->
+      <ul *ngIf="displayName" class="navbar-nav ml-auto mr-5">
+        <li class="nav-item disabled">
+          <a class="nav-link">
+            {{displayName}}
+          </a>
+        </li>
+      </ul>
+  
+      <div class="d-flex mr-1">
+        <button *ngIf="!displayName" class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/login">
+          Log In
+        </button>
+  
+        <button *ngIf="displayName" class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logout()">
+          Log Out
+        </button>
+      </div>
+    </div>
+  </nav>
+
+<div class="container mt-4">
+    <div class="row">
+        
+        <div class="col-md-8 mx-auto">
+          <H3>My TODO List:</H3>
+          <br />
+            <table class="table">
+                    <tr *ngFor="let todo of todoList">
+                      <td class="align-middle text-center">
+                        <input id="checkFollower" type="checkbox" [(ngModel)]="todo.done" [checked]="todo.done" (change)="onStatusUpdated(todo)">
+                      </td>
+                        <td class="align-middle col-6">{{todo.description}}</td>
+                        <td class="align-middle text-center col-3">
+                          <button class="btn btn" (click)="delete(todo)">
+                            <i class="far fa-trash-alt fa-lg text-danger"></i>
+                        </button>
+                        </td>
+                    </tr>
+            </table>
+        </div>
+
+        <!-- Create -->
+        <div class="col-md-4 mx-auto">
+            <div class="alert alert-info" role="alert">
+                <h3>Create a new TODO:</h3>
+                <form #clientForm="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" class="form-control" name="description" [(ngModel)]="todo.description" />
+                    </div>
+
+                    <button type="button" class="btn btn-primary" (click)="onSubmit()">
+                        <i class="far fa-save"></i> Create
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
