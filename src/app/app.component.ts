@@ -8,7 +8,7 @@ import { TokenService } from './services/token.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  title = 'horus-web-app';
+  title = 'todo-app-web-client';
 
   userLogged: SocialUser;
   isLogged: boolean;

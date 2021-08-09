@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "horus-web-app": {
+    "todo-app-web-client": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -65,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "horus-web-app:build"
+            "browserTarget": "todo-app-web-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "horus-web-app:build:production"
+              "browserTarget": "todo-app-web-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "horus-web-app:build"
+            "browserTarget": "todo-app-web-client:build"
           }
         },
         "test": {
@@ -113,16 +113,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "horus-web-app:serve"
+            "devServerTarget": "todo-app-web-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "horus-web-app:serve:production"
+              "devServerTarget": "todo-app-web-client:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "horus-web-app"
+  "defaultProject": "todo-app-web-client"
 }
